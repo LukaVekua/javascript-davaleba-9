@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Demo of changing position of an Image in JavaScript</title>
+    <script src="romeligaca.js" defer></script>
+
+</head>
+
+<body>
+    <div id='box' >  </div>
+    <br><br><br><br>
+    <div id="stroke"> </div>
+    <div id = "stroke_2"> </div>
+    <input id="btn" type=button onClick=move_img('up') value='ზემოთ'>
+    <input id="btn_2" type=button onClick=move_img('left') value='მარცხნივ'>
+    <input id="btn_3" type=button onClick=move_img('right') value='მარჯვნივ'>
+    <input id="btn_4" type=button onClick=move_img('down') value='ქვემოთ'>
+    <input id="btn_5" type=button onClick = move_img('down-left') value='ქვემოთ-მარცხნივ'>
+    <input id="btn_6" type=button  value='ქვემოთ-მარჯვნივ'>
+    <input id="btn_7" type=button  value='ზემოთ-მარცხნივ'>
+    <input id="btn_8" type=button  value='ზემოთ-მარჯვნივ'>
+
+
+
+
+
+
+
+    <script language='JavaScript' type='text/JavaScript'>
+        function move_img(str) {
+        var step=50; 
+        switch(str){
+        case "down":
+        var x=document.getElementById('box').offsetTop;
+        x= x + step;
+        document.getElementById('box').style.top= x + "px";
+        break;
+        
+        case "up":
+        var x=document.getElementById('box').offsetTop;
+        x= x -step;
+        document.getElementById('box').style.top= x + "px";
+        break;
+        
+        case "left":
+        var y=document.getElementById('box').offsetLeft;
+        y= y - step;
+        document.getElementById('box').style.left= y + "px";
+        break;
+        
+        case "right":
+        var y=document.getElementById('box').offsetLeft;
+        y= y + step;
+        document.getElementById('box').style.left= y + "px";
+        break;
+
+        
+        break;
+        }
+        }
+        
+    </script>
+    
+</body>
+
+</html>

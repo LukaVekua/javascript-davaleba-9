@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Trash </title>
+    <script src="Nagvis_Yuti.js" defer></script>
+</head>
+
+<body>
+
+    <div id='txt' > - დააწექით კვადრატს ადგილის შეცვლისთვის </div>
+
+    <div id="container">
+        <div onclick="swapDiv(event);" id="1"> one </div>
+        <div onclick="swapDiv(event);" id="2"> two </div>
+        <div onclick="swapDiv(event);" id="3"> three </div>
+        <div onclick="swapDiv(event);" id="4"> four </div>
+        <div onclick="swapDiv(event);" id="5"> five </div>
+    </div>
+
+
+    <img src="NAGAVI.JPG" id="surati">
+
+    <button id='btn_1'> პირველი კვადრატის ნაგავში გაშვება </button>
+    <button id='btn_2'> მეორე კვადრატის ნაგავში გაშვება </button>
+    <button id='btn_3'> მესამე კვადრატის ნაგავში გაშვება </button>
+    <button id='btn_4'> მეოთხე კვადრატის ნაგავში გაშვება </button>
+    <button id='btn_5'> მეხუთე კვადრატის ნაგავში გაშვება </button>
+
+
+    <script type="text/javascript">
+        var div = firstElementChild(document.getElementById('container'));
+        while (div !== null) {
+            div.onclick = swapWithPreviousElement;
+            div = nextElementSibling(div);
+        }
+
+
+        function swapWithPreviousElement() {
+            var previous = previousElementSibling(this);
+            if (previous !== null)
+                this.parentNode.insertBefore(this, previous);
+        }
+
+
+        function previousElementSibling(element) {
+            if ('previousElementSibling' in element)
+                return element.previousElementSibling;
+            do
+                element = element.previousSibling;
+            while (element !== null && element.nodeType !== 1);
+            return element;
+        }
+
+        function nextElementSibling(element) {
+            if ('nextElementSibling' in element)
+                return element.nextElementSibling;
+            do
+                element = element.nextSibling;
+            while (element !== null && element.nodeType !== 1);
+            return element;
+        }
+
+        function firstElementChild(element) {
+            if ('firstElementChild' in element)
+                return element.firstElementChild;
+            var child = element.firstChild;
+            while (child !== null && child.nodeType !== 1)
+                child = child.nextSibling;
+            return child;
+        }
+    </script>
+</body>
+
+</html>
